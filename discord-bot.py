@@ -1,6 +1,19 @@
-import os 
+import os
+import sys
 import discord
 from maid_service_LLM import maid_service
+from dotenv import load_dotenv      # 讀取環境變數
+
+
+bundle_dir = os.path.abspath(os.path.dirname(__file__))
+dotenv_path = os.path.join(bundle_dir, '.env')
+
+# 從 .env 檔讀取 TOKEN
+# exe_file = sys.executable
+# exe_parent = os.path.dirname(exe_file)
+# dotenv_path = os.path.join(exe_parent, ".env")
+
+load_dotenv(dotenv_path=dotenv_path)
 
 # client是跟discord連接，intents是要求機器人的權限
 intents = discord.Intents.default()
